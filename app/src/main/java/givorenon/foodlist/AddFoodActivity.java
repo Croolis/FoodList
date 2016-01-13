@@ -1,5 +1,6 @@
 package givorenon.foodlist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,12 +31,15 @@ public class AddFoodActivity extends AppCompatActivity {
     }
 
     public void addFood(View view) {
-        String name = (String) ((TextView) findViewById(R.id.foodName)).getText();
-        String recipe = (String) ((TextView) findViewById(R.id.foodRecipe)).getText();
+        String name = ((TextView) findViewById(R.id.foodName)).getText().toString();
+        String recipe = ((TextView) findViewById(R.id.foodRecipe)).getText().toString();
         float rating = ((RatingBar) findViewById(R.id.foodRating)).getRating();
         Food newFood = new Food(name, rating, recipe);
 
         DataBase dataBase = DataBase.getInstance();
         dataBase.addFood(newFood);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

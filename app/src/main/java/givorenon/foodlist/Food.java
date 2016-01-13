@@ -15,11 +15,8 @@ public class Food {
     }
 
     Food(String aName, float aRating) {
-        new Food(aName, aRating, "Sorry, there is no recipe");
-    }
-
-    Food(String aName, int aRating) {
         name = aName;
-        rating = new Float(aRating);
+        rating = aRating;
+        recipe = "Sorry, there is no recipe";
     }
 }

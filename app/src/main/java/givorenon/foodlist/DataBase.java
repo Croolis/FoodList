@@ -11,6 +11,11 @@ public class DataBase {
     private ArrayList<Food> foodList;
 
     private DataBase() {
+        foodList = new ArrayList<Food>();
+        foodList.add(new Food("potatoes", 3));
+        foodList.add(new Food("tomato", 5));
+        foodList.add(new Food("carrot", 2));
+        foodList.add(new Food("onemoredish", 0));
     }
 
     public static DataBase getInstance() {
