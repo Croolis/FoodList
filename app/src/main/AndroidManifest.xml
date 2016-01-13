@@ -27,6 +27,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="givorenon.foodlist.MainActivity" />
         </activity>
+        <activity
+            android:name=".AddFoodActivity"
+            android:label="@string/title_activity_add_food"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="givorenon.foodlist.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

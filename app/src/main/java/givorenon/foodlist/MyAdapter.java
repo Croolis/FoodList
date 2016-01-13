@@ -14,20 +14,20 @@ import java.util.ArrayList;
  * Created by givorenon on 11.01.16.
  */
 public class MyAdapter extends BaseAdapter {
-    ArrayList<Dish> dishesList;
+    ArrayList<Food> foodList;
     LayoutInflater inflater;
     Context context;
     final int NUM_STARS = 5;
 
-    MyAdapter(Context aContext, ArrayList<Dish> aDishesList) {
-        dishesList = aDishesList;
+    MyAdapter(Context aContext, ArrayList<Food> aFoodList) {
+        foodList = aFoodList;
         context = aContext;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return dishesList.size();
+        return foodList.size();
     }
 
     @Override
@@ -37,10 +37,10 @@ public class MyAdapter extends BaseAdapter {
             resultView = (View) inflater.inflate(R.layout.dish_info, null, false);
         }
 
-        ((TextView) resultView.findViewById(R.id.name)).setText(dishesList.get(aPosition).name);
-        ((RatingBar) resultView.findViewById(R.id.rating)).setRating(dishesList.get(aPosition).rating);
+        ((TextView) resultView.findViewById(R.id.name)).setText(foodList.get(aPosition).name);
+        ((RatingBar) resultView.findViewById(R.id.rating)).setRating(foodList.get(aPosition).rating);
         ((RatingBar) resultView.findViewById(R.id.rating)).setNumStars(NUM_STARS);
-        ((RatingBar) resultView.findViewById(R.id.rating)).setTag(aPosition);
+        resultView.setTag(aPosition);
 
         resultView.setId(aPosition);
 
@@ -53,7 +53,7 @@ public class MyAdapter extends BaseAdapter {
     }
 
     @Override
-    public Dish getItem(int anId) {
-        return dishesList.get(anId);
+    public Food getItem(int anId) {
+        return foodList.get(anId);
     }
 }
