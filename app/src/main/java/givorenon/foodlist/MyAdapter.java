@@ -37,8 +37,8 @@ public class MyAdapter extends BaseAdapter {
             resultView = (View) inflater.inflate(R.layout.dish_info, null, false);
         }
 
-        ((TextView) resultView.findViewById(R.id.name)).setText(foodList.get(aPosition).name);
-        ((RatingBar) resultView.findViewById(R.id.rating)).setRating(foodList.get(aPosition).rating);
+        ((TextView) resultView.findViewById(R.id.name)).setText(foodList.get(aPosition).getName());
+        ((RatingBar) resultView.findViewById(R.id.rating)).setRating(foodList.get(aPosition).getRating());
         ((RatingBar) resultView.findViewById(R.id.rating)).setNumStars(NUM_STARS);
         resultView.setTag(aPosition);
 

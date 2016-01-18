@@ -34,10 +34,14 @@ public class AddFoodActivity extends AppCompatActivity {
         String name = ((TextView) findViewById(R.id.foodName)).getText().toString();
         String recipe = ((TextView) findViewById(R.id.foodRecipe)).getText().toString();
         float rating = ((RatingBar) findViewById(R.id.foodRating)).getRating();
-        Food newFood = new Food(name, rating, recipe);
+        Food newFood = new Food();
+        newFood.setId(name);
+        newFood.setRating(rating);
+        newFood.setName(name);
+        newFood.setRecipe(recipe);
 
         DataBase dataBase = DataBase.getInstance();
-        dataBase.addFood(newFood);
+        dataBase.addFood(newFood, getApplicationContext());
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

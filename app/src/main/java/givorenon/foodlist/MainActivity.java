@@ -33,14 +33,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         dataBase = DataBase.getInstance();
-        foodList = dataBase.getFoodList();
+        foodList = dataBase.getFoodList(getApplicationContext());
         ((ListView) findViewById(R.id.listView)).setAdapter(new MyAdapter(this, foodList));
     }
 
     public void showFoodInfo(View view) {
         Intent intent = new Intent(this, FoodInfoActivity.class);
         int id = Integer.valueOf(view.getTag().toString());
-        intent.putExtra("recipe", foodList.get(id).recipe);
+        intent.putExtra("recipe", foodList.get(id).getRecipe());
         startActivity(intent);
     }
 
